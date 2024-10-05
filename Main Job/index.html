@@ -17,9 +17,9 @@
             text-align: center;
         }
 
-        /* Header and Footer */
+        /* Header and Footer with Gradient */
         header, footer {
-            background-color: #d32f2f; /* Set header and footer to red */
+            background: linear-gradient(to right, #d32f2f, #ff7f50); /* Gradient from red to coral */
             color: white;
             padding: 15px 0;
             text-align: center;
@@ -55,13 +55,40 @@
         }
 
         /* Navigation buttons */
-       
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #d32f2f;
+            border: none;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 1;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
 
         /* Dots (indicator) */
         .dot-container {
             text-align: center;
             padding: 15px;
-            background: #ddd;
         }
 
         .dot {
@@ -91,8 +118,9 @@
             }
 
             .prev, .next {
+                width: 30px;
+                height: 30px;
                 font-size: 14px; /* Smaller font size for buttons */
-                padding: 10px; /* Adjust padding for buttons */
             }
         }
     </style>
@@ -111,14 +139,15 @@
         <img class="slides" src="../Images/Helle'sRotaryPhone.png" alt="Helle's Rotary Phone">
         
         <!-- Navigation buttons -->
-        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        <button class="prev" onclick="changeSlide(-1)" aria-label="Previous Slide">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)" aria-label="Next Slide">&#10095;</button>
     </div>
 
     <!-- Dots indicator -->
     <div class="dot-container">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 
     <!-- Footer -->
